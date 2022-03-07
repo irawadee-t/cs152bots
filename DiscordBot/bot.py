@@ -254,6 +254,11 @@ class ModBot(discord.Client):
                 write_obj.write(el + '\t')
             write_obj.write('\n')   
         write_obj.close()
+        
+        def gen_frequencyTable("time_data.csv"):
+            time_data = pd.read_csv("time_data.csv") # read the data
+            freq_tab = pd.crosstab(index=time_data["message_content"], columns="count")                 
+            freq_tab
 
 
         mod_channel = self.mod_channels[message.guild.id]
